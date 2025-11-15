@@ -1,7 +1,12 @@
+body {
+    margin: 0;
+    padding: 0;
+}
 .header{
     background-color: #32127A;
     height: 100%;
     width: 100%;
+    position: relative;
 }
 .logo{
     margin-left: 136px;
@@ -43,4 +48,22 @@
     font-family: 'Merriweather', sans-serif;
     font-size: 14px;
     margin-left: 12px;
+}
+.log_in:hover, .sign_up:hover{
+    border: 2px;
+    cursor: pointer;
+    border-style: solid;
+    border-color: #00CCCC;
+}
+.main{
+    width: 100%;
+    height: 100vh;
+    background-color: #2A2840;
+}
+.content{
+    width: 1302px;
+    height: auto;
+    margin: 0 auto;
+    padding-top: 50px;
+    background-color: rgba(115, 81, 132, 25);
 }
