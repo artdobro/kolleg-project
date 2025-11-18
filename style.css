@@ -1,69 +1,103 @@
+:root{
+    --primary-color: #32127A;
+    --secondary-color: #FAEEDD;
+    --accent-color: #00CCCC;
+    --background-color: #2A2840;
+    --content-background: rgba(115, 81, 132, 25);
+    --font-family-main: 'Merriweather', sans-serif;
+}
 body {
     margin: 0;
     padding: 0;
+    background-color: var(--background-color);
+}
+button{
+    position: absolute;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--secondary-color);
+    font-family: var(--font-family-main);
+    font-size: 14px;
 }
 .header{
-    background-color: #32127A;
+    background-color:var(--primary-color);
     height: 100%;
     width: 100%;
     position: relative;
+    display: flex;
+    align-items: center;
 }
 .logo{
     margin-left: 136px;
-    height: auto;
+    height: 100%;
+    position: static;
 }
 .search{
-    display: inline-block, flex;
-    margin: auto;
+    display: block;
     width: 440px;
     height: 38px;
     border-radius: 10px;
     border: none;
-    font-family: 'Merriweather', sans-serif;
+    font-family: var(--font-family-main);
     font-size: 12px;
-    color: #FAEEDD;
+    color: var(--secondary-color);
+    margin-left: 279px;
 }
 .log_in{
-    position: absolute;
     right: 236px;
     top: 35px;
     width: 120px;
     height: 38px;
-    border-radius: 10px;
-    border: none;
-    background-color: #FAEEDD;
-    font-family: 'Merriweather', sans-serif;
-    font-size: 14px;
-    margin-right: 12px;
 }
 .sign_up{
-    position: absolute;
     right: 69px;
     top: 35px;
     width: 155px;
     height: 38px;
-    border-radius: 10px;
-    border: none;
-    background-color: #FAEEDD;
-    font-family: 'Merriweather', sans-serif;
-    font-size: 14px;
     margin-left: 12px;
 }
 .log_in:hover, .sign_up:hover{
     border: 2px;
     cursor: pointer;
     border-style: solid;
-    border-color: #00CCCC;
-}
-.main{
-    width: 100%;
-    height: 100vh;
-    background-color: #2A2840;
+    border-color: var(--accent-color);
+    letter-spacing: 0.02em;
 }
 .content{
-    width: 1302px;
-    height: auto;
+
     margin: 0 auto;
-    padding-top: 50px;
-    background-color: rgba(115, 81, 132, 25);
+    width: 90%;
+    height: auto;
+    margin-top: 63px;
+    background-color: var(--content-background);
+}
+.search-zone{
+    width: 317px;
+    height: 1000px;
+    background-color: #D9D9D9;
+}
+.navigation{
+    display: flex;
+    gap: 20px;
+
+}
+.main_button{
+    display: block;
+    text-decoration: none;
+    width: 198px;
+    height: 51px;
+    background-color: var(--primary-color);
+    text-align: center;
+    align-items: center;
+    font-family: var(--font-family-main);
+    font-size: 36px;
+    color: var(--secondary-color);
+}
+.main_button:hover{
+    border: 2px;
+    cursor: pointer;
+    border-style: solid;
+    border-color: var(--accent-color);
+    letter-spacing: 0.02em;
+    box-shadow: inset 0 0 10px var(--accent-color), 0 0 10px var(--background-color);
 }
