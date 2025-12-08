@@ -151,22 +151,12 @@ button{
     font-size: 16px;
     color: var(--secondary-color);
     text-align: center;
-    margin: 0;
-      position: absolute;
-    top: 0;
-    left: 0;
-  -webkit-transform: translateY(100%);
-          transform: translateY(100%);
-  -webkit-transition: -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    position: absolute;
+
   opacity: 0;
 }
 .film:hover .film_min_info{
     opacity: 1;
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
 }
 .star{
     margin-left: 201px;
