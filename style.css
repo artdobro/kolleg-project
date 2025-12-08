@@ -21,11 +21,17 @@ button{
 }
 .header{
     background-color:var(--primary-color);
-    height: 100%;
     width: 100%;
-    position: relative;
+    position: sticky;
     display: flex;
-    align-items: center;
+    align-items: center; 
+    top: -100px;
+    z-index: 100;
+    transition: top 0.3s ease;
+}
+.header.visible{
+    top: 0;
+    transition: top 0.3s;
 }
 .logo{
     margin-left: 136px;
@@ -33,14 +39,16 @@ button{
     position: static;
 }
 .search{
-    display: block;
+    display: flex;
     width: 440px;
     height: 38px;
     border-radius: 10px;
     border: none;
     font-family: var(--font-family-main);
     font-size: 12px;
-    margin-left: 279px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .search:hover{
     box-shadow: inset 0 0 10px var(--accent-color), 0 0 5px var(--background-color);
@@ -50,6 +58,7 @@ button{
     top: 35px;
     width: 120px;
     height: 38px;
+    
 }
 .sign_up{
     right: 69px;
@@ -125,33 +134,38 @@ button{
 .title-img{
     width: 253px;
     height: 342px;
-
 }
 .title{
+    text-decoration: none;
     font-family: var(--font-family-main);
     font-size: 16px;
     color: var(--secondary-color);
     font-style: normal;
     margin-top: 9px;
 }
-.film{
-    position: relative;
-}
 .film_min_info{
-    position: absolute;
-    bottom: -100%; /* спрятан ниже */
     width: 253px;
     height: 342px;
-    background: #ffbe7a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: bottom 0.4s ease;
+    background-color: rgba(0, 0, 0, 0.6);
+    font-family: var(--font-family-main);
+    font-size: 16px;
+    color: var(--secondary-color);
     text-align: center;
+    position: absolute;
+    bottom: 100%; /* Или другое положение, например, 100% снизу */
+    top: 100%; /* Выезжает справа */
+    padding: 10px;
+    opacity: 0; /* Изначально скрыт */
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
-.film_list:hover .film {
-    opacity: 0.7; /* затемнение при наведении */
+.film:hover .film_min_info{
+    opacity: 1; /* Показываем при наведении */
+    transform: translateX(-100%); /* Сдвигаем влево, чтобы появиться над элементом */
 }
-.film:hover .film_min_info {
-    bottom: 0%; /* появляется при наведении */
+.star{
+    margin-left: 201px;
+}
+.star:hover{
+    cursor: pointer;
+    background-image: url('./images/Star\ hover.png');
 }
