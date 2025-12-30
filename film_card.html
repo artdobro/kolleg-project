@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="icon" href="./images/Лого(2) 2.png" type="image/x-icon">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
@@ -14,10 +15,65 @@
 </head>
 <body>
     <header class="header" d-flex ai-center vw100>
-        <img src="./images/Лого(2) 2.png" alt="logo" class="logo">
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><img src="./images/Лого(2) 2.png" alt="logo" class="logo"></a>
         <input type="text" name="Search" placeholder="Пошук по сайту..." class="search">
-        <button type="button" class="log_in">Увійти</button>
-        <button type="button" class="sign_up">Зареєструватись</button>
+        <div>
+        <button type="button" class="log_in, button">Увійти</button>
+        <button type="button" class="sign_up, button">Зареєструватись</button>
+<!-- Overlay -->
+<div class="overlay" id="overlay">
+  <div class="modal" id="modal">
+
+    <button class="close" id="closeModal">✕</button>
+
+    <h2 id="modalTitle">Вхід</h2>
+
+    <input type="text" placeholder="Логін">
+    <input type="password" placeholder="Пароль">
+
+    <button class="submit">Увійти</button>
+  </div>
+</div>
+        </div>
     </header>
+        <div class="content">
+            <section class="search-zone">
+                вы ниче не найдете, мы жадины
+            </section>
+            <div>
+            <section class="navigation">
+                <a class="main_page main_button" href="./main.html">Головна</a>
+                <a class="film_page main_button" href="./films.html">Фільми</a>
+                <a class="series_page main_button" href="./series.html">Серіали</a>
+                <a class="anime_page main_button" href="./anime.html">Аніме</a>
+            </section>
+            <section class="film_info">
+                <img src="./images/Lumii_20250418_182733081.jpg" alt="Постер фільму" class="film_poster">
+                <div class="film_details">
+                    <h1 class="main_title">День, коли ти ще не винен</h1>
+                    <h4>The day when you are not yet guilty</h4>
+                    <ul class="info_list">
+                        <li>Рік випуску: 2025</li>
+                        <li>Жанр: Фантастика, Драма</li>
+                        <li>Вікове обмеження: 14+</li>
+                        <li>Тривалість: 18хв 57сек</li>
+                        <li>Режисер: Рибкін Платон</li>
+                        <li style="max-width: 490px;">Актори: Левінцов Микита, Свістунов Вадим, Лященко Елизавета </li>
+                    </ul>
+                </div>
+                </section>
+                  <p class="text">Про що фільм “День, коли ти ще не винен”:<br><br> 
+                    Хлопець, якого добряче випробувало життя.<br><br>
+                    До 24-х років він встиг залишитися без батьків, загриміти в колонію, а замість свободи... Зобов'язатися спецслужбі, яка зачищає майбутніх виродків іще в ранньому віці, не даючи їм шансів вирости, бо має для цього невідому для світу зброю — переміщення у часі.<br><br>
+                    Проте на шляху до розуміння свого життя та майбутнього він порушує наказ і змінює і себе, і правила гри в СБУ.<br><br>
+                    Матеріал підготовлено за підтримки Міжнародного фонду «Відродження». Матеріал представляє позицію авторів і не обов’язково відображає позицію Міжнародного фонду «Відродження».</p>
+                <video class="film_video" src="https://youtu.be/rRZkMI8oIXY?si=xBOwDN-EJyIHXVbE" preload="auto" controls></video>
+            </div>     
+        </div>
+            <script src="./main.js"></script>
+            <script>
+                movieTitle = document.querySelector('.main_title').textContent;
+                document.title = movieTitle;
+            </script>
 </body>
 </html>
