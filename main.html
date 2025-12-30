@@ -4,21 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Курсач</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Tuffy:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./images/Лого(2) 2.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Tuffy:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <header class="header" d-flex ai-center vw100>
-        <img src="./images/Лого(2) 2.png" alt="logo" class="logo">
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><img src="./images/Лого(2) 2.png" alt="logo" class="logo"></a>
         <input type="text" name="Search" placeholder="Пошук по сайту..." class="search">
-        <div style="margin-bottom: 50px;">
-            <button type="button" class="log_in">Увійти</button>
-            <button type="button" class="sign_up">Зареєструватись</button>
+        <div>
+        <button type="button" class="log_in">Увійти</button>
+        <button type="button" class="sign_up">Зареєструватись</button>
+<!-- Overlay -->
+<div class="overlay" id="overlay">
+  <div class="modal" id="modal">
+
+    <button class="close" id="closeModal">✕</button>
+
+    <h2 id="modalTitle">Ласкаво просимо</h2>
+<div style="align-items: center; display: flex; flex-direction: column; gap: 30px; ">
+    <input type="text" placeholder="Логін">
+    <input type="password" placeholder="Пароль">
+</div>
+    <button class="submit">Увійти</button>
+  </div>
+</div>
         </div>
     </header>
         <div class="content">
@@ -33,15 +48,14 @@
                         <a class="anime_page main_button" href="./anime.html">Аніме</a>
                     </section>
                     <section class="film_list">
-                        <div class="film">
-                            <a href="./film_card.html" ><img class="title_img" src="./images/Lumii_20250418_182733081.jpg" width="253px" height="342" alt="">
-                            <h3 class="title">День, коли ти ще не винен</h3></a> 
-                            <div class="film_min_info">
-                                <img class="star" src="./images/Star none.png" alt="">
-                                <h3 style="margin-top: 210px;">Фантастика, Драма <br> 2025, 14+, 18хв 57сек</h3>
-                            </div>
+                        <div class="film"><div>
+                                <img class="title_img" src="./images/Lumii_20250418_182733081.jpg" width="253px" height="342" alt="">
+                                <h3 class="title">День, коли ти ще не винен</h3></div>
+                                <div class="film_min_info">
+                                   <button class="star" id="starBtn">★</button>
+                                    <h3 style="margin-top: 250px;">Фантастика, Драма <br> 2025, 14+, 18хв 57сек</h3>
+                                </div>
                         </div>
-                       
                     </section>
                 </div>
         </div>
