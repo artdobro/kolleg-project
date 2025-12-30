@@ -11,7 +11,7 @@ body {
     padding: 0;
     background-color: var(--background-color);
 }
-button{
+.button{
     position: absolute;
     border-radius: 10px;
     border: none;
@@ -24,10 +24,11 @@ button{
     width: 100%;
     position: sticky;
     display: flex;
-    align-items: center; 
+    align-items: center;
     top: -100px;
     z-index: 100;
     transition: top 0.3s ease;
+    
 }
 .header.visible{
     top: 0;
@@ -55,17 +56,28 @@ button{
 }
 .log_in{
     right: 236px;
-    top: 35px;
     width: 120px;
     height: 38px;
-    
+    top: 19px;
+    position: absolute;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--secondary-color);
+    font-family: var(--font-family-main);
+    font-size: 14px;
 }
 .sign_up{
+    top: 19px;
     right: 69px;
-    top: 35px;
     width: 155px;
     height: 38px;
     margin-left: 12px;
+    position: absolute;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--secondary-color);
+    font-family: var(--font-family-main);
+    font-size: 14px;
 }
 .log_in:hover, .sign_up:hover{
     border: 2px;
@@ -74,18 +86,75 @@ button{
     border-color: var(--accent-color);
     letter-spacing: 0.02em;
 }
+/* затемнение */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* само окно */
+.modal {
+    background: #082567;
+    width: 773px;
+    height: 594px;
+    border-radius: 12px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* крестик */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* показать модал */
+.overlay.active {
+    display: flex;
+}
+
+/* инпуты */
+.modal input {
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    font-family: var(--font-family-main);
+    font-size: 24px;
+    width: 461px;
+    height: 62px;
+    background-color: var(--secondary-color);
+}
+
+/* кнопка */
+.submit {
+    padding: 10px;
+    cursor: pointer;
+}
 .content{
     display: flex;
+    flex-wrap: wrap;
     margin: 0 auto;
-    width: 84%;
+    width: 85%;
     height: auto;
     margin-top: 63px;
     background-color: rgba(115, 81, 132, 0.4)
     
 }
 .search-zone{
-    width: 24%;
-    height: 1000px;
+    width: 25%;
+    height: auto;
     background-color: #D9D9D9;
 }
 .navigation{
@@ -131,6 +200,9 @@ button{
     margin-top: 62px;
     position: relative;
 }
+.film{
+    display: flex;
+}
 .title-img{
     width: 253px;
     height: 342px;
@@ -152,16 +224,102 @@ button{
     color: var(--secondary-color);
     text-align: center;
     position: absolute;
-
-  opacity: 0;
+    transition: 0.3s;
+    opacity: 0;
+    text-decoration: none;
 }
 .film:hover .film_min_info{
     opacity: 1;
+    transition: 0.3s;
 }
-.star{
-    margin-left: 201px;
-}
-.star:hover{
+.star {
+    top: 3px;
+    right: 5px;
+    font-size:60px;
+    background: none;
+    border: none;
     cursor: pointer;
-    background-image: url('./images/Star\ hover.png');
+    display: inline-flex;        
+    line-height: 1;
+    color: transparent;
+        -webkit-text-stroke: 1.5px #000000;
+}
+
+.star:not(.active):hover {
+    color: #c9a400; 
+}
+
+.star.active {
+    color: #ffd700; 
+        -webkit-text-stroke: 1.5px black;
+}
+
+/* Стилі для перегляду фільмів */
+
+.film_poster{
+    width: 327px;
+    height: 462px;
+}
+.film_info{
+    margin-left: 56px;
+    margin-top: 76px;
+    display: flex;
+}
+.film_details{
+    margin-left: 21px;
+    flex: 1;
+    min-width: 0;
+}
+.main_title{
+    font-family: var(--font-family-main);
+    font-size: 40px;
+    color: white;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+h4{
+    font-family: var(--font-family-main);
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.info_list{
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: var(--font-family-main);
+    font-size: 24px;
+    color: white;
+    flex: 1;
+    min-width: 0;
+    margin-top: 30px;
+}
+li{
+    margin-bottom: 28px;
+}
+.text{
+    flex: 1;
+    font-family: Tuffy, sans-serif;
+    font-size: 24px;
+    color: white;
+    line-height: 1.5;
+    max-width: 813px;
+    background-color: rgba(62, 48, 143, 0.5);
+    height: auto;
+    border-radius: 10px;
+    margin-left: 50px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-left: 29px;
+    padding-right: 29px;
+}
+.film_video{
+    width: 875px;
+    height: 554px;
+    background-color: #000000;
+    margin-left: 50px;
+    border-radius: 0 0 10px 10px;
+    cursor: url("./images/playcursore.png") 16 16, pointer;
 }
