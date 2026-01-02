@@ -239,6 +239,7 @@ body {
     background: none;
     border: none;
     cursor: pointer;
+    position: absolute;
     display: inline-flex;        
     line-height: 1;
     color: transparent;
