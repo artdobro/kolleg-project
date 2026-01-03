@@ -18,22 +18,30 @@
         <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><img src="./images/Лого(2) 2.png" alt="logo" class="logo"></a>
         <input type="text" name="Search" placeholder="Пошук по сайту..." class="search">
         <div>
-        <button type="button" class="log_in">Увійти</button>
-        <button type="button" class="sign_up">Зареєструватись</button>
-<!-- Overlay -->
-<div class="overlay" id="overlay">
-  <div class="modal" id="modal">
+            <button type="button" class="log_in">Увійти</button>
+            <button type="button" class="sign_up">Зареєструватись</button>
+            <div class="overlay" id="overlay">
+                <div class="modal" id="modal">
+                    <form action="">
+                        <button class="close" id="closeModal">✕</button>
+                        <h2 id="modalTitle">Ласкаво просимо</h2>
+                        <div style="align-items: center; display: flex; flex-direction: column; gap: 30px; ">
+                            <input type="text" placeholder="Логін" required>
+                            <input type="email" id="emailInput" placeholder="Електронна пошта" class="hidden">
+                            <p id="emailError" class="error hidden">Введіть електронну пошту</p>
+                            <input type="password" placeholder="Пароль" required>
+                        </div>
+                        <button class="submit" id="login" type="submit">Увійти</button>
+                        <button class="submit" id="register" type="submit">Реєстрація</button>
+                    </form>
 
-    <button class="close" id="closeModal">✕</button>
-
-    <h2 id="modalTitle">Ласкаво просимо</h2>
-<div style="align-items: center; display: flex; flex-direction: column; gap: 30px; ">
-    <input type="text" placeholder="Логін">
-    <input type="password" placeholder="Пароль">
-</div>
-    <button class="submit">Увійти</button>
-  </div>
-</div>
+                </div>
+            </div>
+            
+        </div>   
+        <div id="profileBlock" class="hidden">
+            <span id="profileName"></span>
+            <button id="logoutBtn">Вийти</button>
         </div>
     </header>
         <div class="content">
