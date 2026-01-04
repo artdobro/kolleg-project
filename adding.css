@@ -59,3 +59,25 @@
     color: var(--secondary-color);
     border-radius: 10px;
 }
+.enter {
+    font-family: var(--font-family-main);
+    font-size: 18px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+.film_info {
+  width: auto;
+    margin-left: 10%;
+    display: flex;
+    gap: 50px;
+}
+.profile-menu-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

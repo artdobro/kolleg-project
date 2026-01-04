@@ -129,30 +129,23 @@ posterInput.addEventListener("change", () => {
   });
 });
 
-// function resizeImage(file, w, h) {
-//   return new Promise(resolve => {
-//     const img = new Image();
-//     const url = URL.createObjectURL(file);
+profileName.addEventListener("click", () => {
+  window.location.href = "./profile.html";
+  profileName.style.cursor = "pointer";
+});
+profileName.addEventListener("mouseover", () => {
+  profileName.style.cursor = "pointer";
+});
 
-//     img.onload = () => {
-//       const canvas = document.createElement("canvas");
-//       canvas.width = w;
-//       canvas.height = h;
-
-//       const ctx = canvas.getContext("2d");
-//       ctx.imageSmoothingEnabled = true;
-//       ctx.imageSmoothingQuality = "high";
-
-//       const scale = Math.max(w / img.width, h / img.height);
-//       const x = (w - img.width * scale) / 2;
-//       const y = (h - img.height * scale) / 2;
-
-//       ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
-
-//       canvas.toBlob(blob => resolve(blob), "image/jpeg", 0.95);
-//       URL.revokeObjectURL(url);
-//     };
-
-//     img.src = url;
-//   });
-// }
+// ===== выход =====
+logoutBtn.addEventListener("click", () => {
+    localStorage.removeItem("authUser");
+    window.location.href = "./index.html";
+  updateUI();
+});
+logoutBtn?.addEventListener("click", () => {
+  localStorage.removeItem("authUser");
+  closeModal();  // модалка точно закрыта
+  updateUI();
+});
+goProfileBtn.onclick = () => window.location.href = "profile.html";

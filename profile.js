@@ -4,6 +4,7 @@ const profileName = document.getElementById("profileName");
 const logoutBtn = document.getElementById("logoutBtn");
 const goProfileBtn = document.getElementById("goProfile");
 const wrapper = document.querySelector(".profile-menu-wrapper");
+
 profileName.addEventListener("click", () => {
   window.location.href = "./profile.html";
   profileName.style.cursor = "pointer";
@@ -11,7 +12,7 @@ profileName.addEventListener("click", () => {
 profileName.addEventListener("mouseover", () => {
   profileName.style.cursor = "pointer";
 });
-
+goProfileBtn.onclick = () => window.location.href = "profile.html";
 // ===== выход =====
 logoutBtn.addEventListener("click", () => {
     localStorage.removeItem("authUser");

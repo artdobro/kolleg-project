@@ -562,6 +562,7 @@ function updateUI() {
     authButtons.classList.add("hidden");
     profileBlock.classList.remove("hidden");
     wrapper.classList.remove("hidden");
+    wrapper.style.display = "flex";
     profileName.textContent = user.login;
 
     // 🔑 ПОКАЗ ТОЛЬКО ДЛЯ ADMIN

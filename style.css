@@ -185,13 +185,8 @@ body {
   border: 1px solid red;
 }
 #profileBlock{
-    display: flex;
-    align-items: center;
-    gap: 10px;
     position: absolute;
     right: 69px;
-    top: 50%;
-    transform: translateY(-50%);
     font-family: var(--font-family-main);
     font-size: 20px;
 }
@@ -408,6 +403,9 @@ li{
 
 .profile-menu-wrapper {
   position: relative;
+  /* display: flex; */
+  align-items: center;
+  gap: 10px;
 }
 
 .profile-icon {
