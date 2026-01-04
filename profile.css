@@ -1,0 +1,54 @@
+.redactor{
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+
+.editable-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  font-family: var(--font-family-main);
+  font-size: 36px;
+  margin-top: 55px;
+}
+
+.editable-field input[readonly] {
+  background: #4a416800;
+  border: 1px solid black;
+  opacity: 0.8;
+}
+
+.editable-field input:not([readonly]) {
+  background: #4a43716c;
+  border: 2px solid black;
+}
+.editable-field input{
+  width: 100%;
+  padding: 10px 40px 10px 10px; /* место под кнопку */
+  background: #4a4168;
+  border: none;
+  color: #fff;
+}
+input{
+    padding: 10px 40px 10px 10px;
+    outline: none;
+    height: 60px;
+    width: auto;
+    font-family: var(--font-family-main);
+    font-size: 36px;
+}
+h2{
+    margin-bottom: 0px;
+    margin-top: 0px;
+    color: var(--secondary-color);
+}
