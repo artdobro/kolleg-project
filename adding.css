@@ -1,0 +1,61 @@
+.genres-select {
+  position: relative;
+  cursor: pointer;
+  color: #000000;
+}
+
+.genres-placeholder {
+  padding: 6px 8px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.genres-dropdown {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.genre-item {
+  display: flex;
+  gap: 8px;
+  padding: 6px 8px;
+}
+
+.genre-item:hover {
+  background: #f0f0f0;
+}
+
+.hidden {
+  display: none;
+}
+
+.film_poster img {
+    width: 327px;
+    height: 462px;
+  object-fit: cover;
+}
+.submit-film {
+    cursor: pointer;
+    width: 245px;
+    height: 37px;
+    border-radius: 10px;
+    background-color: #20214F;
+    color: var(--secondary-color);
+    font-family: var(--font-family-main);
+    font-size: 24px;
+}
+.submit-film:hover{
+    background-color: var(--primary-color);
+    border: 2px solid var(--accent-color);
+    color: var(--secondary-color);
+    border-radius: 10px;
+}
