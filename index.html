@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Курсач</title>
-    <link rel="icon" href="./images/Лого(2) 2.png" type="image/x-icon">
+    <link rel="icon" href="./images/logo.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
 </head>
 <body>
     <header class="header" d-flex ai-center vw100>
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><img src="./images/Лого(2) 2.png" alt="logo" class="logo"></a>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><img src="./images/logo.png" alt="logo" class="logo"></a>
         <input type="text" name="Search" placeholder="Пошук по сайту..." class="search">
         <div>
             <button type="button" class="log_in">Увійти</button>
@@ -37,11 +37,16 @@
 
                 </div>
             </div>
-            
         </div>   
-        <div id="profileBlock" class="hidden">
-            <span id="profileName"></span>
-            <button id="logoutBtn">Вийти</button>
+        <div id="profileBlock" style="align-items: center;" class="profile-block hidden">
+            <div class="profile-menu-wrapper">
+                <span id="profileName" class="profile-name">username</span>
+                <img src="./images/Avatar.png" alt="Profile" class="profile-icon">
+                <div class="profile-dropdown">
+                    <button id="goProfile">Профіль</button>
+                    <button id="logoutBtn">Вийти</button>
+                </div>
+            </div>
         </div>
     </header>
         <div class="content">
@@ -56,12 +61,16 @@
                         <a class="anime_page main_button" href="./anime.html">Аніме</a>
                     </section>
                     <section class="film_list">
+                        <div class="hidden" id="add_film">
+                            <img class="add_img" src="./images/add.png" width="253px" height="342" alt="">
+                            <h3 class="add_title">Додати фільм</h3>
+                        </div>
                         <div class="film"><div>
                                 <img class="title_img" src="./images/Lumii_20250418_182733081.jpg" width="253px" height="342" alt="">
                                 <h3 class="title">День, коли ти ще не винен</h3></div>
                                 <div class="film_min_info">
-                                   <button class="star" id="starBtn">★</button>
-                                    <h3 style="margin-top: 250px;">Фантастика, Драма <br> 2025, 14+, 18хв 57сек</h3>
+                                    <button class="star" id="starBtn">★</button>
+                                    <h3 style="margin-top: 250px;"><span id="genre">Фантастика, Драма</span> <br> <span id="year">2025</span>, <span id="age">14+</span>, <span id="duration">18хв 57сек</span></h3>
                                 </div>
                         </div>
                     </section>
@@ -69,6 +78,6 @@
         </div>
     <footer class="footer">
     </footer>
-    <script src="./main.js"></script>
+    <script src="./main.js" defer></script>
 </body>
 </html>
