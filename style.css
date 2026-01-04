@@ -10,6 +10,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--background-color);
+    align-items: center;
 }
 .button{
     position: absolute;
@@ -201,7 +202,7 @@ body {
     width: 85%;
     height: auto;
     margin-top: 63px;
-    background-color: rgba(115, 81, 132, 0.4)
+    background-color: rgba(115, 81, 132, 0.4);
     
 }
 .search-zone{
@@ -258,6 +259,22 @@ body {
 .title-img{
     width: 253px;
     height: 342px;
+}
+#add_film{
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+.add_img:hover{
+    box-shadow: inset 0 0 20px var(--accent-color), 0 0 5px var(--background-color);
+}
+.add_title{
+    text-decoration: none;
+    font-family: var(--font-family-main);
+    font-size: 16px;
+    color: var(--secondary-color);
+    font-style: normal;
+    margin-top: 9px;    
 }
 .title{
     text-decoration: none;
@@ -375,4 +392,72 @@ li{
     margin-left: 50px;
     border-radius: 0 0 10px 10px;
     cursor: url("./images/playcursore.png") 16 16, pointer;
+}
+
+.profile-block {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.profile-name {
+  cursor: pointer;
+  color: white;
+}
+
+.profile-menu-wrapper {
+  position: relative;
+}
+
+.profile-icon {
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+
+.profile-dropdown button {
+  background: none;
+  border: none;
+  color: white;
+  padding: 12px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.profile-dropdown button:hover {
+  background: #333;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background: #1c1c1c;
+  border-radius: 8px;
+  min-width: 150px;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-5px);
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0s linear 2s; /* ⏳ задержка скрытия */
+
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  z-index: 100;
+}
+
+/* ПОКАЗ */
+.profile-menu-wrapper:hover .profile-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition-delay: 0s;
 }
