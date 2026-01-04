@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Додати фільм</title>
+    <link rel="icon" href="./images/logo.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Tuffy:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="adding.css">
+</head>
+<body>
+    <header class="header" d-flex ai-center vw100>
+        <a href="./index.html"><img src="./images/logo.png" alt="logo" class="logo"></a>
+        <input type="text" name="Search" placeholder="Пошук по сайту..." class="search">
+        <div id="profileBlock" class="profile-block hidden">
+            <div class="profile-menu-wrapper">
+                <span id="profileName" class="profile-name">admin</span>
+                <img src="./images/Avatar.png" alt="Profile" class="profile-icon">
+                <div class="profile-dropdown">
+                    <button id="goProfile">Профіль</button>
+                    <button id="logoutBtn">Вийти</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="content">
+        <form id="addFilmForm">
+            <section class="film_info">
+                <!-- POSTER -->
+                <label class="film_poster">
+                    <input type="file" id="posterInput" accept="image/*" hidden required>
+                    <img src="./images/add.png" alt="Постер фільму" id="posterPreview">
+                </label>
+                <!-- DETAILS -->
+                <div class="film_details">
+                    <input type="text" id="titleUA" placeholder="Назва фільму" required>
+                    <input type="text" id="titleEN" placeholder="Title (English)">
+                    <ul class="info_list">
+                        <li>
+                            Рік випуску:
+                            <input type="number" name="year" min="1900" max="2100" required>
+                        </li>
+                        <li>
+                            Жанр:
+                            <div class="genres-select" id="genresSelect">
+                            <div class="genres-placeholder">Оберіть жанри</div>
+                            <div class="genres-dropdown hidden" id="genresDropdown"></div>
+                            </div>
+                        </li>
+                        <li>
+                            Вікове обмеження:
+                            <input type="text" name="age" placeholder="14+" required>
+                        </li>
+                        <li>
+                            Тривалість:
+                            <input type="text" name="duration" required>
+                        </li>
+                        <li>
+                            Режисер:
+                            <input type="text" name="director" required>
+                        </li>
+                        <li>
+                            Актори:
+                            <input type="text" name="actors" placeholder="Через кому" required>
+                        </li>
+                    </ul>
+                    <button type="submit" class="submit-film">Додати фільм</button>
+                </div>
+            </section>
+        </form>
+    </div>
+    <script src="./auth.js"></script>
+    <script src="./adding.js"></script>
+</body>
