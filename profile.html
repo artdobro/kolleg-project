@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Курсач</title>
-    <link rel="icon" href="./images/Лого(2) 2.png" type="image/x-icon">
+    <title>Профіль користувача</title>
+    <link rel="icon" href="./images/logo.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
@@ -12,25 +12,57 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Tuffy:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./profile.css">
 </head>
 <body>
     <header class="header" d-flex ai-center vw100>
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><img src="./images/Лого(2) 2.png" alt="logo" class="logo"></a>
+        <a href="./index.html"><img src="./images/logo.png" alt="logo" class="logo"></a>
         <input type="text" name="Search" placeholder="Пошук по сайту..." class="search">
-        <div id="profileBlock" class="hidden">
-            <span id="profileName"></span>
-            <button id="logoutBtn">Вийти</button>
-        </div>
-
+<div id="profileBlock" style="align-items: center;" class="profile-block hidden">
+  <div class="profile-menu-wrapper">
+    <span id="profileName" class="profile-name">username</span>
+    <img src="./images/Avatar.png" alt="Profile" class="profile-icon">
+    <div class="profile-dropdown">
+      <button id="goProfile">Профіль</button>
+      <button id="logoutBtn">Вийти</button>
+    </div>
+  </div>
+</div>
     </header>
         <div class="content">
-                    <section class="navigation">
-                        <a class="main_page main_button" href="./index.html">Головна</a>
-                        <a class="film_page main_button" href="./films.html">Фільми</a>
-                        <a class="series_page main_button" href="./series.html">Серіали</a>
-                        <a class="anime_page main_button" href="./anime.html">Аніме</a>
+            <section class="navigation" style="margin-left: 220px; align-items: center;">
+                <a class="main_page main_button" href="./index.html">Головна</a>
+                <a class="film_page main_button" href="./films.html">Фільми</a>
+                <a class="series_page main_button" href="./series.html">Серіали</a>
+                <a class="anime_page main_button" href="./anime.html">Аніме</a>
+            </section>
+            <section style="display: flex; flex-direction: column;">
+                <div style="display: inline-block; align-items: center;">
+                    <img src="./images/Avatar.png" alt="" style="width: 257px; height: 257px; justify-content: center; position: relative;">
+                    <button class="redactor"><img src="./images/pen.png" alt=""></button>
+                </div>
+                <div style="display: inline-block; align-items: center;">
+                    <div class="editable-field">
+                        <input type="text" id="nickname" readonly value="Pokemosha">
+                        <button class="edit-btn redactor" data-field="nickname"><img src="./images/pen.png" alt=""></button>
+                    </div>
+                </div>
+                <div class="editable-field" style="display: flex; align-items: center;">
+                    <h2>Email</h2>
+                    <input type="text" id="email" readonly>
+                    <button class="edit-btn redactor" data-field="email"><img src="./images/pen.png" alt=""></button>
+                </div>
+                <div class="editable-field" style="display: flex; align-items: center;">
+                    <h2>Password</h2>
+                    <input type="text" id="password" readonly>
+                    <button class="icon-btn toggle-pass redactor" style="margin-right: 57px;"><img src="./images/monkey-hide.png" alt=""></button>
+                    <button class="edit-btn redactor" data-field="password"><img src="./images/pen.png" alt=""></button>
+                </div>
+            </section>
+        </div>
     <footer class="footer">
     </footer>
-    <script src="./main.js"></script>
+    <script src="./auth.js" defer></script>
+    <script src="./profile.js" defer></script>
 </body>
 </html>
