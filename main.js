@@ -38,8 +38,67 @@ document.querySelector('.series_page').addEventListener('click', function(event)
   window.alert('Тут може бути ваша реклама, звертатися за номером 8 800 555 35 35');
 });
 document.querySelector('.anime_page').addEventListener('click', function(event){
-  window.alert('Тут вам не Японія, для того що ви хочете подивитись замовляйте дешеві білети на авіасейлс.юа ヾ(•ω•`)o');
+  window.alert('Тут вам не Японія, для того що ви хочете подивитись замовляйте дешеві авіаквитки на авіасейлс ヾ(•ω•`)o');
 });
+
+// ===== genres from DB (mock) =====
+const genresFromDB = [
+  { id: 1, name: "Фантастика" },
+  { id: 2, name: "Драма" },
+  { id: 3, name: "Комедія" },
+  { id: 4, name: "Бойовик" },
+  { id: 5, name: "Трилер" },
+  { id: 6, name: "Жахи" }
+];
+
+const genreList = document.getElementById("genreList");
+const applyBtn = document.getElementById("applyFilters");
+
+let selectedGenres = [];
+
+// ===== render =====
+function renderGenreList() {
+  genreList.innerHTML = "";
+
+  genresFromDB.forEach((genre) => {
+    const btn = document.createElement("button");
+    btn.className = "genre-btn";
+    btn.textContent = genre.name;
+
+    btn.onclick = () => toggleGenre(genre, btn);
+
+    genreList.appendChild(btn);
+  });
+}
+
+// ===== toggle =====
+function toggleGenre(genre, btn) {
+  const index = selectedGenres.findIndex(g => g.id === genre.id);
+
+  if (index >= 0) {
+    selectedGenres.splice(index, 1);
+    btn.classList.remove("active");
+  } else {
+    selectedGenres.push(genre);
+    btn.classList.add("active");
+  }
+}
+
+// ===== apply =====
+applyBtn.onclick = () => {
+  const filters = {
+    genres: selectedGenres.map(g => g.id),
+    yearFrom: document.getElementById("yearFrom").value || null,
+    yearTo: document.getElementById("yearTo").value || null
+  };
+
+  console.log("Фільтри:", filters);
+
+  // В будущем:
+  // fetch(`/api/films?genres=${filters.genres.join(",")}&from=${filters.yearFrom}&to=${filters.yearTo}`)
+};
+
+renderGenreList();
 
 // ================== ELEMENTS ==================
 const overlay = document.getElementById("overlay");
@@ -239,3 +298,99 @@ function showError(text) {
   emailError.textContent = text;
   emailError.classList.remove("hidden");
 }
+
+const filmList = document.querySelector(".film_list");
+const pagination = document.getElementById("pagination");
+
+const FILMS_PER_PAGE = 12;
+const MAX_VISIBLE = 4;
+
+let films = Array.from(document.querySelectorAll(".film"));
+let currentPage = 1;
+
+function getTotalPages() {
+  return Math.ceil(films.length / FILMS_PER_PAGE);
+}
+
+function renderPage(page) {
+  const totalPages = getTotalPages();
+  if (page < 1 || page > totalPages) return;
+
+  currentPage = page;
+  filmList.innerHTML = "";
+
+  const start = (page - 1) * FILMS_PER_PAGE;
+  const end = start + FILMS_PER_PAGE;
+
+  if (addFilmBlock && !addFilmBlock.classList.contains("hidden")) {
+    filmList.appendChild(addFilmBlock);
+  }
+
+  films.slice(start, end).forEach(film => {
+    filmList.appendChild(film);
+  });
+
+  renderPagination();
+}
+
+function renderPagination() {
+  pagination.innerHTML = "";
+  const totalPages = getTotalPages();
+  if (totalPages <= 1) return;
+
+  const prev = document.createElement("button");
+  prev.innerHTML = "◀";
+  prev.disabled = currentPage === 1;
+  prev.onclick = () => changePage(currentPage - 1);
+  pagination.appendChild(prev);
+
+  let start = Math.max(1, currentPage - 1);
+  let end = start + MAX_VISIBLE - 1;
+
+  if (end > totalPages) {
+    end = totalPages;
+    start = Math.max(1, end - MAX_VISIBLE + 1);
+  }
+
+  if (start > 1) {
+    addPageButton(1);
+    if (start > 2) addDots();
+  }
+
+  for (let i = start; i <= end; i++) {
+    addPageButton(i);
+  }
+
+  if (end < totalPages) {
+    if (end < totalPages - 1) addDots();
+    addPageButton(totalPages);
+  }
+
+  const next = document.createElement("button");
+  next.innerHTML = "▶";
+  next.disabled = currentPage === totalPages;
+  next.onclick = () => changePage(currentPage + 1);
+  pagination.appendChild(next);
+}
+
+function addPageButton(page) {
+  const btn = document.createElement("button");
+  btn.textContent = page;
+  if (page === currentPage) btn.classList.add("active");
+  btn.onclick = () => changePage(page);
+  pagination.appendChild(btn);
+}
+
+function addDots() {
+  const dots = document.createElement("span");
+  dots.textContent = "…";
+  pagination.appendChild(dots);
+}
+
+function changePage(page) {
+  renderPage(page);
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+// INIT
+renderPage(1);
