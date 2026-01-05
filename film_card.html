@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title></title>
     <link rel="icon" href="./images/logo.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,7 @@
     <header class="header" d-flex ai-center vw100>
         <a href="./index.html"><img src="./images/logo.png" alt="logo" class="logo"></a>
         <input type="text" name="Search" placeholder="Пошук по сайту..." class="search">
-        <div>
+        <div style="margin-left: auto; align-items: center; gap: 15px;">
             <button type="button" class="log_in">Увійти</button>
             <button type="button" class="sign_up">Зареєструватись</button>
             <div class="overlay" id="overlay">
@@ -34,32 +34,44 @@
                         <button class="submit" id="login" type="submit">Увійти</button>
                         <button class="submit" id="register" type="submit">Реєстрація</button>
                     </form>
-
                 </div>
             </div>
-            
-        </div>   
-<div id="profileBlock" style="align-items: center;" class="profile-block hidden">
-  <div class="profile-menu-wrapper">
-    <span id="profileName" class="profile-name">username</span>
-    <img src="./images/Avatar.png" alt="Profile" class="profile-icon">
-    <div class="profile-dropdown">
-      <button id="goProfile">Профіль</button>
-      <button id="logoutBtn">Вийти</button>
-    </div>
-  </div>
-</div>
+        </div>
+        <div id="profileBlock" style="align-items: center;" class="profile-block hidden">
+            <div class="profile-menu-wrapper">
+                <span id="profileName" class="profile-name">username</span>
+                <img src="./images/Avatar.png" alt="Profile" class="profile-icon">
+                <div class="profile-dropdown">
+                    <button id="goProfile">Профіль</button>
+                    <button id="logoutBtn">Вийти</button>
+                </div>
+            </div>
+        </div>
     </header>
         <div class="content">
             <section class="search-zone">
-                вы ниче не найдете, мы жадины
+                <h1 style="margin-top: 60px;">Зона пошуку пригод</h1>
+                <div class="search-field">
+                    <h4 class="search-title">Жанри</h4>
+                    <ul class="genre-list" id="genreList"></ul>
+                </div>
+                <div class="search-field">
+                    <h4 class="search-title">Рік випуску</h4>
+                    <div class="year-range">
+                        <input type="number" id="yearFrom" placeholder="від" min="1900" max="2100">
+                        <input type="number" id="yearTo" placeholder="до" min="1900" max="2100">
+                    </div>
+                </div>
+                <div class="search-field">
+                    <button class="apply-filters" id="applyFilters">Застосувати фільтри</button>
+                </div>
             </section>
             <div>
             <section class="navigation">
-                <a class="main_page main_button" href="./index.html">Головна</a>
-                <a class="film_page main_button" href="./films.html">Фільми</a>
-                <a class="series_page main_button" href="./series.html">Серіали</a>
-                <a class="anime_page main_button" href="./anime.html">Аніме</a>
+                <button class="main_page main_button" href="./index.html">Головна</button>
+                <button class="film_page main_button" href="./films.html">Фільми</button>
+                <button class="series_page main_button" href="./series.html">Серіали</button>
+                <button class="anime_page main_button" href="./anime.html">Аніме</button>
             </section>
             <section class="film_info">
                 <img src="./images/Lumii_20250418_182733081.jpg" alt="Постер фільму" class="film_poster">
