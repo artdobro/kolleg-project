@@ -16,6 +16,79 @@ window.addEventListener('scroll', function() {
   lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Для iOS
 });
 
+document.querySelector('.main_page').addEventListener('click', function() {
+  window.location.href = './index.html';
+});
+document.querySelector('.film_page').addEventListener('click', function(event){
+  window.alert('Було б добре, якби ця кнопка працювала :)');
+});
+document.querySelector('.series_page').addEventListener('click', function(event){
+  window.alert('Тут може бути ваша реклама, звертатися за номером 8 800 555 35 35');
+});
+document.querySelector('.anime_page').addEventListener('click', function(event){
+  window.alert('Тут вам не Японія, для того що ви хочете подивитись замовляйте дешеві авіаквитки на авіасейлс ヾ(•ω•`)o');
+});
+
+
+// ===== genres from DB (mock) =====
+const genresFromDB = [
+  { id: 1, name: "Фантастика" },
+  { id: 2, name: "Драма" },
+  { id: 3, name: "Комедія" },
+  { id: 4, name: "Бойовик" },
+  { id: 5, name: "Трилер" },
+  { id: 6, name: "Жахи" }
+];
+
+const genreList = document.getElementById("genreList");
+const applyBtn = document.getElementById("applyFilters");
+
+let selectedGenres = [];
+
+// ===== render =====
+function renderGenreList() {
+  genreList.innerHTML = "";
+
+  genresFromDB.forEach((genre) => {
+    const btn = document.createElement("button");
+    btn.className = "genre-btn";
+    btn.textContent = genre.name;
+
+    btn.onclick = () => toggleGenre(genre, btn);
+
+    genreList.appendChild(btn);
+  });
+}
+
+// ===== toggle =====
+function toggleGenre(genre, btn) {
+  const index = selectedGenres.findIndex(g => g.id === genre.id);
+
+  if (index >= 0) {
+    selectedGenres.splice(index, 1);
+    btn.classList.remove("active");
+  } else {
+    selectedGenres.push(genre);
+    btn.classList.add("active");
+  }
+}
+
+// ===== apply =====
+applyBtn.onclick = () => {
+  const filters = {
+    genres: selectedGenres.map(g => g.id),
+    yearFrom: document.getElementById("yearFrom").value || null,
+    yearTo: document.getElementById("yearTo").value || null
+  };
+
+  console.log("Фільтри:", filters);
+
+  // В будущем:
+  // fetch(`/api/films?genres=${filters.genres.join(",")}&from=${filters.yearFrom}&to=${filters.yearTo}`)
+};
+
+renderGenreList();
+
 const overlay = document.getElementById("overlay");
 const modal = document.getElementById("modal");
 const modalTitle = document.getElementById("modalTitle");
