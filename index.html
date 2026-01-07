@@ -26,15 +26,14 @@
                         <button class="close" id="closeModal">✕</button>
                         <h2 id="modalTitle">Ласкаво просимо</h2>
                         <div style="align-items: center; display: flex; flex-direction: column; gap: 30px; ">
-                            <input type="text" placeholder="Логін" required>
-                            <input type="email" id="emailInput" placeholder="Електронна пошта" class="hidden">
-                            <p id="emailError" class="error hidden">Введіть електронну пошту</p>
-                            <input type="password" placeholder="Пароль" required>
+                            <input type="text" name="username" placeholder="Логін" required>
+                            <input type="email" name="email" id="emailInput" placeholder="Електронна пошта" class="hidden">
+                            <p id="emailError" class="error hidden"></p>
+                            <input type="password" name="password" placeholder="Пароль" required>
                         </div>
                         <button class="submit" id="login" type="submit">Увійти</button>
                         <button class="submit" id="register" type="submit">Реєстрація</button>
                     </form>
-
                 </div>
             </div>
         </div>   
