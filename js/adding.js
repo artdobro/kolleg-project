@@ -109,7 +109,7 @@ document.getElementById("addFilmForm").addEventListener("submit", async e => {
 
 
 profileName.addEventListener("click", () => {
-  window.location.href = "./profile.html";
+  window.location.href = "../profile.html";
   profileName.style.cursor = "pointer";
 });
 profileName.addEventListener("mouseover", () => {

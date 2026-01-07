@@ -19,7 +19,7 @@ document.querySelector('.star').addEventListener('click', function(event){
 document.querySelector('.film').addEventListener('click', function(event){
   if (event.target.classList.contains('star')) 
     return;
-  window.location.href = './film_card.html';
+  window.location.href = '../html/film_card.html';
 });
 
 const star = document.getElementById('starBtn');
@@ -29,7 +29,7 @@ star.addEventListener('click', () => {
 });
 
 document.querySelector('.main_page').addEventListener('click', function() {
-  window.location.href = './index.html';
+  window.location.href = '../html/index.html';
 });
 document.querySelector('.film_page').addEventListener('click', function(event){
   window.alert('Було б добре, якби ця кнопка працювала :)');
@@ -52,6 +52,7 @@ const genresFromDB = [
 ];
 
 const genreList = document.getElementById("genreList");
+const countryList = document.getElementById("countryList");
 const applyBtn = document.getElementById("applyFilters");
 
 let selectedGenres = [];
@@ -84,10 +85,90 @@ function toggleGenre(genre, btn) {
   }
 }
 
+// ================== COUNTRIES ==================
+const countriesFromDB = [
+  { id: 1, name: "США" },
+  { id: 2, name: "Україна" },
+  { id: 3, name: "Франція" },
+  { id: 4, name: "Велика Британія" },
+  { id: 5, name: "Японія" }
+];
+
+const countriesSelect = document.getElementById("countriesSelect");
+const countriesDropdown = document.getElementById("countriesDropdown");
+const countriesPlaceholder = countriesSelect.querySelector(".countries-placeholder");
+
+let selectedCountries = [];
+
+// рендер списка
+function renderCountries(countries) {
+  countriesDropdown.innerHTML = "";
+
+  countries.forEach(country => {
+    const label = document.createElement("label");
+    label.className = "country-item";
+
+    label.innerHTML = `
+      <input type="checkbox" value="${country.id}">
+      <span>${country.name}</span>
+    `;
+
+    const checkbox = label.querySelector("input");
+
+    checkbox.addEventListener("change", () => {
+      const id = Number(checkbox.value);
+
+      if (checkbox.checked) {
+        selectedCountries.push(id);
+      } else {
+        selectedCountries = selectedCountries.filter(c => c !== id);
+      }
+
+      updateCountriesPlaceholder();
+    });
+
+    countriesDropdown.appendChild(label);
+  });
+}
+
+function updateCountriesPlaceholder() {
+  if (selectedCountries.length === 0) {
+    countriesPlaceholder.textContent = "Оберіть країни";
+    return;
+  }
+
+  const names = countriesFromDB
+    .filter(c => selectedCountries.includes(c.id))
+    .map(c => c.name);
+
+  countriesPlaceholder.textContent = names.join(", ");
+}
+
+// открытие / закрытие
+countriesSelect.addEventListener("click", (e) => {
+  e.stopPropagation();
+  countriesDropdown.classList.toggle("hidden");
+});
+
+// клик вне — закрывает
+document.addEventListener("click", () => {
+  countriesDropdown.classList.add("hidden");
+});
+
+// инициализация
+renderCountries(countriesFromDB);
+
+// экспорт выбранных стран
+function getSelectedCountries() {
+  return selectedCountries;
+}
+
+
 // ===== apply =====
 applyBtn.onclick = () => {
   const filters = {
     genres: selectedGenres.map(g => g.id),
+    countries: selectedCountries.map(c => c.id),
     yearFrom: document.getElementById("yearFrom").value || null,
     yearTo: document.getElementById("yearTo").value || null
   };

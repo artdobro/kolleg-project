@@ -12,7 +12,7 @@ window.addEventListener("scroll", function () {
 });
 
 document.querySelector('.main_page').addEventListener('click', function() {
-  window.location.href = './index.html';
+  window.location.href = '../html/index.html';
 });
 document.querySelector('.film_page').addEventListener('click', function(event){
   window.alert('Було б добре, якби ця кнопка працювала :)');
@@ -58,14 +58,14 @@ document.addEventListener("DOMContentLoaded", updateUI);
 
 // ===== actions =====
 profileName?.addEventListener("click", () => {
-  window.location.href = "./profile.html";
+  window.location.href = "../html/profile.html";
 });
 
-goProfileBtn && (goProfileBtn.onclick = () => (window.location.href = "profile.html"));
+goProfileBtn && (goProfileBtn.onclick = () => (window.location.href = "../html/profile.html"));
 
 logoutBtn?.addEventListener("click", () => {
   localStorage.removeItem("authUser");
-  window.location.href = "./index.html";
+  window.location.href = "../html/index.html";
 });
 
 // ===== editing =====
@@ -78,10 +78,10 @@ document.querySelectorAll(".edit-btn").forEach((btn) => {
     if (input.hasAttribute("readonly")) {
       input.removeAttribute("readonly");
       input.focus();
-      btn.innerHTML = '<img src="./images/save.png" alt="" style="width: 45px; height: 45px;">';
+      btn.innerHTML = '<img src="../images/save.png" alt="" style="width: 45px; height: 45px;">';
     } else {
       input.setAttribute("readonly", true);
-      btn.innerHTML = '<img src="./images/pen.png" alt="">';
+      btn.innerHTML = '<img src="../images/pen.png" alt="">';
       // здесь позже будет отправка на backend
     }
   });
@@ -93,6 +93,6 @@ toggleBtn?.addEventListener("click", () => {
   if (!passwordInputField) return;
   passwordInputField.type = passwordInputField.type === "password" ? "text" : "password";
   toggleBtn.innerHTML = `<img src="${
-    passwordInputField.type === "password" ? "./images/monkey-hide.png" : "./images/monkey-open.png"
+    passwordInputField.type === "password" ? "../images/monkey-hide.png" : "../images/monkey-open.png"
   }" alt="">`;
 });

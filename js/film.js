@@ -17,7 +17,7 @@ window.addEventListener('scroll', function() {
 });
 
 document.querySelector('.main_page').addEventListener('click', function() {
-  window.location.href = './index.html';
+  window.location.href = '../html/index.html';
 });
 document.querySelector('.film_page').addEventListener('click', function(event){
   window.alert('Було б добре, якби ця кнопка працювала :)');

@@ -11,20 +11,20 @@ html, body{
   margin: 0;
 }
 body {
-    margin: 0;
-    padding: 0;
-    background-color: #1c1b2e;
-    align-items: center;
-      display: flex;
+  margin: 0;
+  padding: 0;
+  background-color: #1c1b2e;
+  align-items: center;
+  display: flex;
   flex-direction: column;
 }
 .button{
-    position: absolute;
-    border-radius: 10px;
-    border: none;
-    background-color: var(--secondary-color);
-    font-family: var(--font-family-main);
-    font-size: 14px;
+  position: absolute;
+  border-radius: 10px;
+  border: none;
+  background-color: var(--secondary-color);
+  font-family: var(--font-family-main);
+  font-size: 14px;
 }
 .header{
   flex-shrink: 0;
@@ -225,14 +225,15 @@ h1{
     font-size: 20px;
     color: var(--secondary-color);
 }
-.genre-list {
+.genre-list, .countries-dropdown 
+ {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin-top: 5px;
 }
 
-.genre-btn {
+.genre-btn, .countries-dropdown {
   padding: 6px 12px;
   border: 1px solid #555;
   background: transparent;
@@ -774,8 +775,39 @@ li{
     width: 100%;
     height: auto;
     background: linear-gradient(to bottom left,#432FB2 10%, #32127A 90%);
-    padding-top: 100px;
     margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    justify-content: space-between;
+    padding: 10px 0px 10px 0px;
+}
+.support-btn{
+  display: flex;
+    width: 350px;
+    height: 50px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    left: 50%;
+    transform: translateX(160%);
+    border: none;
+    background-color: #3e2baa;
+    font-family: var(--font-family-main);
+    font-size: 16px;
+    align-items: center;
+    justify-content: center;
+    color: var(--background-color);
+    transition: transform 0.3s ease;
+    text-decoration: none;
+
+}
+.support-btn:hover{
+    cursor: pointer;
+    box-shadow: inset 0 0 10px var(--accent-color);
+    color: var(--secondary-color);
+    background-color: #250daf;
+    transition: transform 0.3s ease;
 }
 
 #snow-container {

@@ -11,11 +11,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Tuffy:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <header class="header" d-flex ai-center vw100>
-        <a href="./index.html"><img src="./images/logo.png" alt="logo" class="logo"></a>
+        <a href="../index.html"><img src="../images/logo.png" alt="logo" class="logo"></a>
         <input type="text" name="Search" placeholder="Пошук по сайту..." class="search">
         <div style="margin-left: auto; align-items: center; gap: 15px;">
             <button type="button" class="log_in">Увійти</button>
@@ -40,7 +40,7 @@
         <div id="profileBlock" style="align-items: center;" class="profile-block hidden">
             <div class="profile-menu-wrapper">
                 <span id="profileName" class="profile-name">username</span>
-                <img src="./images/Avatar.png" alt="Profile" class="profile-icon">
+                <img src="../images/Avatar.png" alt="Profile" class="profile-icon">
                 <div class="profile-dropdown">
                     <button id="goProfile">Профіль</button>
                     <button id="logoutBtn">Вийти</button>
@@ -68,13 +68,13 @@
             </section>
             <div>
             <section class="navigation">
-                <button class="main_page main_button" href="./index.html">Головна</button>
-                <button class="film_page main_button" href="./films.html">Фільми</button>
-                <button class="series_page main_button" href="./series.html">Серіали</button>
-                <button class="anime_page main_button" href="./anime.html">Аніме</button>
+                <button class="main_page main_button" href="../index.html">Головна</button>
+                <button class="film_page main_button" href="../films.html">Фільми</button>
+                <button class="series_page main_button" href="../series.html">Серіали</button>
+                <button class="anime_page main_button" href="../anime.html">Аніме</button>
             </section>
             <section class="film_info">
-                <img src="./images/Lumii_20250418_182733081.jpg" alt="Постер фільму" class="film_poster">
+                <img src="../images/Lumii_20250418_182733081.jpg" alt="Постер фільму" class="film_poster">
                 <div class="film_details">
                     <h1 class="main_title">День, коли ти ще не винен</h1>
                     <h4>The day when you are not yet guilty</h4>
@@ -96,9 +96,14 @@
                 <video class="film_video" src="./images/video_2026-01-05_01-09-58.mp4" preload="auto" controls></video>
             </div>     
         </div>
+            <footer class="footer">
+        <h1 style="margin-left: 20px;">Сайт створений завдяки: logerions та artdobro (шукайте на гітхабі та у телеграмі)</h1>
+        <h1 style="margin-left: 20px;"> Це сайт для перегляду різних роликів цих студентів, а також фільмів, поки ще невідомої студії відеопродакшену "Подвір'я".</h1>
+        <a href="https://send.monobank.ua/jar/8bMeK1du5Q" target="_blank" class="support-btn">Підтримати бідних студентів</a>
+    </footer>
         <div id="snow-container"></div>
-    <script src="./snow.js"></script>
-    <script src="./api.js"></script>
-    <script src="./film.js" defer></script>
+    <script src="../js/snow.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/film.js" defer></script>
 </body>
 </html>
