@@ -33,30 +33,24 @@ const genresPlaceholder = genresSelect.querySelector(".genres-placeholder");
 
 let selectedGenres = [];
 
-// рендер списка
-function renderGenres(genres) {
+/* GENRES */
+function renderGenres() {
   genresDropdown.innerHTML = "";
 
-  genres.forEach(genre => {
+  genresFromDB.forEach(g => {
     const label = document.createElement("label");
     label.className = "genre-item";
-
     label.innerHTML = `
-      <input type="checkbox" value="${genre.id}">
-      <span>${genre.name}</span>
+      <input type="checkbox" value="${g.id}">
+      <span>${g.name}</span>
     `;
 
     const checkbox = label.querySelector("input");
-
     checkbox.addEventListener("change", () => {
-      const id = Number(checkbox.value);
-
-      if (checkbox.checked) {
-        selectedGenres.push(id);
-      } else {
-        selectedGenres = selectedGenres.filter(g => g !== id);
-      }
-
+      const id = +checkbox.value;
+      checkbox.checked
+        ? selectedGenres.push(id)
+        : selectedGenres = selectedGenres.filter(x => x !== id);
       updatePlaceholder();
     });
 
@@ -65,84 +59,54 @@ function renderGenres(genres) {
 }
 
 function updatePlaceholder() {
-  if (selectedGenres.length === 0) {
-    genresPlaceholder.textContent = "Оберіть жанри";
-    return;
-  }
-
-  const names = genresFromDB
-    .filter(g => selectedGenres.includes(g.id))
-    .map(g => g.name);
-
-  genresPlaceholder.textContent = names.join(", ");
+  genresPlaceholder.textContent = selectedGenres.length
+    ? genresFromDB.filter(g => selectedGenres.includes(g.id)).map(g => g.name).join(", ")
+    : "Оберіть жанри";
 }
 
-// открытие / закрытие
-genresSelect.addEventListener("click", (e) => {
+genresSelect.addEventListener("click", e => {
   e.stopPropagation();
   genresDropdown.classList.toggle("hidden");
 });
 
-// клик вне — закрывает
-document.addEventListener("click", () => {
-  genresDropdown.classList.add("hidden");
-});
+document.addEventListener("click", () => genresDropdown.classList.add("hidden"));
+renderGenres();
 
-// инициализация
-renderGenres(genresFromDB);
-
-function getSelectedGenres() {
-  return selectedGenres;
-}
-
+/* POSTER PREVIEW */
 const posterInput = document.getElementById("posterInput");
 const posterPreview = document.getElementById("posterPreview");
 
 posterInput.addEventListener("change", () => {
   const file = posterInput.files[0];
   if (!file) return;
-
-  // защита: только картинки
-  if (!file.type.startsWith("image/")) {
-    alert("Будь ласка, оберіть зображення");
-    posterInput.value = "";
-    return;
-  }
-
-  const objectURL = URL.createObjectURL(file);
-  posterPreview.src = objectURL;
+  posterPreview.src = URL.createObjectURL(file);
 });
 
-let currentPreviewURL = null;
+/* SUBMIT */
+document.getElementById("addFilmForm").addEventListener("submit", async e => {
+  e.preventDefault();
 
-posterInput.addEventListener("change", () => {
-  const file = posterInput.files[0];
-  if (!file) return;
+  const formData = new FormData();
+  formData.append("titleUA", titleUA.value);
+  formData.append("titleEN", titleEN.value);
+  formData.append("description", description.value);
+  formData.append("year", year.value);
+  formData.append("age", age.value);
+  formData.append("duration", duration.value);
+  formData.append("director", director.value);
+  formData.append("actors", actors.value);
+  formData.append("genres", JSON.stringify(selectedGenres));
+  formData.append("poster", posterInput.files[0]);
+  formData.append("film", filmFile.files[0]); // 🎬 ВИДЕО
 
-  if (currentPreviewURL) {
-    URL.revokeObjectURL(currentPreviewURL);
-  }
-
-  currentPreviewURL = URL.createObjectURL(file);
-  posterPreview.src = currentPreviewURL;
-});
-
-
-
-let resizedImageBlob = null; // то, что отправим в БД
-
-posterInput.addEventListener("change", () => {
-  const file = posterInput.files[0];
-  if (!file) return;
-
-  resizeImage(file, 253, 342).then(blob => {
-    resizedImageBlob = blob;
-
-    // preview
-    const url = URL.createObjectURL(blob);
-    posterPreview.src = url;
+  await fetch("/api/films", {
+    method: "POST",
+    body: formData
   });
+
+  alert("Фільм успішно додано");
 });
+
 
 profileName.addEventListener("click", () => {
   window.location.href = "./profile.html";

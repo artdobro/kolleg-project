@@ -1,0 +1,9 @@
+{
+  "title": "Назва",
+  "description": "Опис",
+  "year": 2025,
+  "genres": [1, 3, 5],
+  "duration": 120,
+  "poster": "images/poster_example.jpg",
+  "video": "images/video_example.mp4"
+}

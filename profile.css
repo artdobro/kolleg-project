@@ -25,9 +25,8 @@
   font-size: 16px;
   font-family: 'Merriweather', sans-serif;
   outline: none;
+  
 }
-
-
 .editable-field input:focus {
   border-color: rgba(255,255,255,0.25);
   background: rgba(255,255,255,0.06);
@@ -37,6 +36,27 @@
 .editable-field input[readonly] {
   opacity: 0.9;
   cursor: default;
+}
+
+.editable-field {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+/* текст слева — фикс */
+.profile-title {
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* зона инпута */
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .redactor {
@@ -73,8 +93,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  left: 50%;
-  transform: translateX(40%);
   margin-top: 32px;
   gap: 24px;
   width: 100%;
@@ -88,4 +106,15 @@
   font-size: 24px;
   color: #fff;
   text-align: center;
+}
+.avatar-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+}
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
 }

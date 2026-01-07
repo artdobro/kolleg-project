@@ -1,0 +1,6 @@
+{
+    "nickname": "admin",
+    "email": "admin@mail.com",
+    "password": "hash_here",
+    "role": "admin"
+}

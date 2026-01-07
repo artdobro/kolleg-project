@@ -394,3 +394,4 @@ function changePage(page) {
 
 // INIT
 renderPage(1);
+

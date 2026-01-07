@@ -29,45 +29,67 @@
   </div>
 </div>
     </header>
-        <div class="content">
-            <section class="navigation" style="margin-left: 220px; align-items: center;">
+        <div class="content" style="justify-content: center;">
+            <section class="navigation" >
                 <button class="main_page main_button" href="./index.html">Головна</button>
                 <button class="film_page main_button" href="./films.html">Фільми</button>
                 <button class="series_page main_button" href="./series.html">Серіали</button>
                 <button class="anime_page main_button" href="./anime.html">Аніме</button>
             </section>
             <section class="profile-wrapper">
-                <div class="avatar-wrapper">
-                    <img src="./images/Avatar.png" alt="Avatar" class="profile-avatar">
-                </div>
-                <div class="editable-field">
-                    <h3 class="profile-title">Nickname</h3>
-                    <input type="text" id="nickname" readonly>
-                    <button class="edit-btn redactor" data-field="nickname">
-                        <img src="./images/pen.png" alt="">
-                    </button>
-                </div>
-                <div class="editable-field">
-                    <h3 class="profile-title">Email</h3>
-                    <input type="text" id="email" readonly>
-                    <button class="edit-btn redactor" data-field="email">
-                        <img src="./images/pen.png" alt="">
-                    </button>
-                </div>
-                <div class="editable-field">
-                    <h3 class="profile-title">Password</h3>
-                    <input type="password" id="password" readonly>
-                    <button class="icon-btn toggle-pass redactor pass-toggle">
-                        <img src="./images/monkey-hide.png" alt="">
-                    </button>
-                    <button class="edit-btn redactor" data-field="password">
-                        <img src="./images/pen.png" alt="">
-                    </button>
-                </div>
+                <ul class="profile-list"></ul>
+                <li class="avatar-wrapper">
+                    <img src="./images/big_avatar.png" alt="Avatar" class="profile-avatar">
+                    <h3 class="profile-title">Ваш прекрасний профіль</h3>
+                </li>
+
+    <li class="editable-field">
+        <h3 class="profile-title">Нікнейм</h3>
+
+        <div class="input-group">
+            <input type="text" id="nickname" readonly>
+            <button class="edit-btn redactor" data-field="nickname">
+                <img src="./images/pen.png" alt="">
+            </button>
+        </div>
+    </li>
+
+    <li class="editable-field">
+        <h3 class="profile-title">Пошта</h3>
+
+        <div class="input-group">
+            <input type="text" id="email" readonly>
+            <button class="edit-btn redactor" data-field="email">
+                <img src="./images/pen.png" alt="">
+            </button>
+        </div>
+    </li>
+
+    <li class="editable-field">
+        <h3 class="profile-title">Пароль</h3>
+
+        <div class="input-group">
+            <input type="password" id="password" readonly>
+
+            <button class="icon-btn toggle-pass redactor pass-toggle">
+                <img src="./images/monkey-hide.png" alt="">
+            </button>
+
+            <button class="edit-btn redactor" data-field="password">
+                <img src="./images/pen.png" alt="">
+            </button>
+        </div>
+    </li>
+</ul>
+
+
             </section>
         </div>
     <footer class="footer">
     </footer>
+    <div id="snow-container"></div>
+    <script src="./snow.js"></script>
+    <script src="./api.js"></script>
     <script src="./auth.js" defer></script>
     <script src="./profile.js" defer></script>
 </body>

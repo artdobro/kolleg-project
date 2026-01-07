@@ -145,3 +145,194 @@
   align-items: center;
   gap: 10px;
 }
+.film_info {
+  display: flex;
+  gap: 26px;
+  padding: 24px;
+}
+
+.film_poster img {
+  width: 327px;
+  height: 462px;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 1px dashed rgba(255,255,255,0.22);
+  background: rgba(255,255,255,0.05);
+}
+
+.enter {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.submit-film {
+  width: 100%;
+  max-width: 340px;
+  height: 46px;
+  border-radius: 10px;
+  background: #6c63ff;
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.genres-select {
+  position: relative;
+}
+
+.genres-dropdown {
+  position: absolute;
+  top: 110%;
+  width: 100%;
+  background: #2f2d4a;
+  border-radius: 14px;
+  max-height: 220px;
+  overflow-y: auto;
+  padding: 8px;
+  z-index: 10;
+}
+
+.genre-item {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.genre-item:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+.hidden {
+  display: none;
+}
+
+/* ====== FORM ====== */
+.film-form {
+  width: 100%;
+  max-width: 980px;
+}
+
+/* ====== MAIN BLOCK ====== */
+.film_info {
+  display: flex;
+  gap: 40px;
+  padding: 32px;
+  justify-content: center;
+}
+
+/* ====== POSTER ====== */
+.film_poster img {
+  width: 327px;
+  height: 462px;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 1px dashed rgba(255,255,255,0.22);
+  background: rgba(255,255,255,0.05);
+}
+
+/* ====== DETAILS ====== */
+.film_details {
+  width: 100%;
+  max-width: 520px; /* 🔥 ОДИНАКОВАЯ ШИРИНА */
+}
+
+/* ====== INPUTS ====== */
+.enter,
+.genres-select,
+.genres-placeholder {
+  width: 100%;
+  max-width: 520px;
+  box-sizing: border-box;
+}
+
+.enter {
+  padding: 14px 14px; /* чуть длиннее */
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  margin-bottom: 14px;
+}
+
+.textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+/* ====== LIST ====== */
+.info_list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.info_list li {
+  margin-bottom: 16px;
+}
+
+/* ====== GENRES ====== */
+.genres-select {
+  position: relative;
+  cursor: pointer;
+}
+
+.genres-placeholder {
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.06);
+}
+
+.genres-dropdown {
+  position: absolute;
+  top: 110%;
+  width: 100%;
+  background: #2f2d4a;
+  border-radius: 14px;
+  max-height: 220px;
+  overflow-y: auto;
+  padding: 8px;
+  z-index: 10;
+}
+
+.genre-item {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.genre-item:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+.hidden {
+  display: none;
+}
+
+/* ====== BUTTON ====== */
+.submit-film {
+  width: 100%;
+  max-width: 520px;
+  height: 48px;
+  border-radius: 10px;
+  background: #6c63ff;
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 10px;
+}

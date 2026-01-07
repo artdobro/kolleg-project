@@ -6,11 +6,17 @@
     --content-background: rgba(115, 81, 132, 25);
     --font-family-main: 'Merriweather', sans-serif;
 }
+html, body{
+      height: 100%;
+  margin: 0;
+}
 body {
     margin: 0;
     padding: 0;
     background-color: #1c1b2e;
     align-items: center;
+      display: flex;
+  flex-direction: column;
 }
 .button{
     position: absolute;
@@ -21,6 +27,7 @@ body {
     font-size: 14px;
 }
 .header{
+  flex-shrink: 0;
   position: sticky;
   top: -120px;
   display: flex;
@@ -30,7 +37,8 @@ body {
   background: linear-gradient(180deg, #2a2850, #1c1b2e);
   z-index: 100;
   transition: top 0.3s ease;
-    
+  width: 100%;
+  box-sizing: border-box;
 }
 .header.visible{
     top: 0;
@@ -184,13 +192,14 @@ body {
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
-    width: 86%;
+    width: 90%;
     height: auto;
     margin-top: 63px;
     background-color: rgba(83, 50, 97, 0.522);
     margin-bottom: 63px;
     border-radius: 20px;
     padding: 10px 0px 10px 10px;
+    flex: 1;
 }
 
 .search-zone{
@@ -430,6 +439,198 @@ h1{
 .pagination span {
   font-size: 20px;
 }
+
+@media (max-width: 1200px) {
+
+  .search {
+    max-width: 420px;
+    font-size: 13px;
+  }
+
+  .sign_up,
+  .log_in {
+    font-size: 14px;
+    padding: 8px 14px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  .search-title {
+    font-size: 18px;
+  }
+
+  .main_button {
+    width: 160px;
+    height: 46px;
+    font-size: 24px;
+  }
+
+  .title,
+  .add_title {
+    font-size: 14px;
+  }
+
+  .pagination button {
+    width: 38px;
+    height: 38px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 992px) {
+
+  .logo {
+    height: 48px;
+  }
+
+  .search {
+    max-width: 320px;
+    font-size: 12px;
+    padding: 9px 12px;
+  }
+
+  .navigation {
+    gap: 10px;
+    margin-top: 50px;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+
+  .search-title {
+    font-size: 16px;
+  }
+
+  .genre-btn {
+    padding: 5px 10px;
+    font-size: 13px;
+  }
+
+  .year-range input {
+    width: 70px;
+    font-size: 13px;
+  }
+
+  .apply-filters {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+
+  .main_button {
+    width: 140px;
+    height: 42px;
+    font-size: 20px;
+  }
+
+  .title_img,
+  .film_min_info {
+    width: 220px;
+    height: 300px;
+  }
+
+  .star {
+    font-size: 46px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .header {
+    padding: 8px 16px;
+  }
+
+  .search {
+    display: none;
+  }
+
+  .navigation {
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .main_button {
+    width: 130px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+
+  .search-title {
+    font-size: 15px;
+  }
+
+  .genre-btn {
+    font-size: 12px;
+  }
+
+  .film_list {
+    justify-content: center;
+  }
+
+  .title_img,
+  .film_min_info {
+    width: 200px;
+    height: 270px;
+  }
+
+  .pagination {
+    gap: 8px;
+  }
+
+  .pagination button {
+    width: 34px;
+    height: 34px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  h1 {
+    font-size: 16px;
+    text-align: center;
+  }
+  .search-zone {
+    width: 100%;
+    padding: 10px;
+    display: none;
+  }
+
+  .main_button {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .title,
+  .add_title {
+    font-size: 13px;
+    text-align: center;
+  }
+
+  .title_img,
+  .film_min_info {
+    width: 180px;
+    height: 250px;
+  }
+
+  .star {
+    font-size: 40px;
+  }
+
+  .pagination button {
+    width: 30px;
+    height: 30px;
+    font-size: 13px;
+  }
+}
+
+
 /* Стилі для перегляду фільмів */
 
 .film_poster{
@@ -574,6 +775,42 @@ li{
     width: 100%;
     height: auto;
     background: linear-gradient(to bottom left,#432FB2 10%, #32127A 90%);
-    padding: 100px;
+    padding-top: 100px;
     margin-top: auto;
+}
+
+#snow-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  pointer-events: none;           /* не мешает кликам */
+  overflow: hidden;
+  z-index: 0;    
+}
+
+.snowflake {
+  position: absolute;
+  top: -10px;
+  color: white;
+  font-size: 1em;
+  user-select: none;
+  opacity: 0.8;
+  animation-name: fall;
+  animation-timing-function: linear;
+}
+.content {
+  position: relative;
+  z-index: 2;
+}
+@keyframes fall {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 110vh);
+  }
 }
