@@ -138,9 +138,9 @@
 
 .fancy-frame::before,
 .fancy-frame::after {
-  content: "✯";
+  content: "⚝";
   position: absolute;
-  color: #f83131;
+  color: #c7b7ff;
   font-size: 36px;
 }
 
