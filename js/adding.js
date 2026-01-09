@@ -12,7 +12,7 @@ window.addEventListener('scroll', function() {
   }
   lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Для iOS
 });
-
+// Это выпадающий список и выбор жанров
 const profileBlock = document.getElementById("profileBlock");
 const profileName = document.getElementById("profileName");
 const logoutBtn = document.getElementById("logoutBtn");
@@ -72,7 +72,7 @@ genresSelect.addEventListener("click", e => {
 document.addEventListener("click", () => genresDropdown.classList.add("hidden"));
 renderGenres();
 
-/* POSTER PREVIEW */
+/* POSTER PREVIEW оно показывает картинку которую загрузили как постер*/
 const posterInput = document.getElementById("posterInput");
 const posterPreview = document.getElementById("posterPreview");
 
@@ -82,7 +82,7 @@ posterInput.addEventListener("change", () => {
   posterPreview.src = URL.createObjectURL(file);
 });
 
-/* SUBMIT */
+/* SUBMIT это отправка данных кнопкой */
 document.getElementById("addFilmForm").addEventListener("submit", async e => {
   e.preventDefault();
 
@@ -116,10 +116,10 @@ profileName.addEventListener("mouseover", () => {
   profileName.style.cursor = "pointer";
 });
 
-// ===== выход =====
+// ===== выход в остальных файлах похожие строки, это когда наводишь на логин справа сверху список выпадающий и там кнопка выхода =====
 logoutBtn.addEventListener("click", () => {
     localStorage.removeItem("authUser");
-    window.location.href = "./index.html";
+    window.location.href = "./main.html";
   updateUI();
 });
 logoutBtn?.addEventListener("click", () => {

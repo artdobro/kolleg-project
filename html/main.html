@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Курсач</title>
+    <link rel="icon" href="./images/logo.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Tuffy:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="header" d-flex ai-center vw100>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><img src="../images/logo.png" alt="logo" class="logo"></a>
+        <input type="text" name="Search" placeholder="Пошук по сайту..." class="search">
+        <div style="margin-left: auto; align-items: center; gap: 15px;">
+            <button type="button" class="log_in">Увійти</button>
+            <button type="button" class="sign_up">Зареєструватись</button>
+            <div class="overlay" id="overlay">
+                <div class="modal" id="modal">
+                    <form action="">
+                        <button class="close" id="closeModal">✕</button>
+                        <h2 id="modalTitle">Ласкаво просимо</h2>
+                        <div style="align-items: center; display: flex; flex-direction: column; gap: 30px; ">
+                            <input type="text" name="username" placeholder="Логін" required>
+                            <input type="email" name="email" id="emailInput" placeholder="Електронна пошта" class="hidden">
+                            <p id="emailError" class="error hidden"></p>
+                            <input type="password" name="password" placeholder="Пароль" required>
+                        </div>
+                        <button class="submit" id="login" type="submit">Увійти</button>
+                        <button class="submit" id="register" type="submit">Реєстрація</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="profileBlock" class="profile-block hidden">
+            <div class="profile-menu-wrapper">
+                <span id="profileName" class="profile-name">username</span>
+                <img src="../images/Avatar.png" alt="Profile" class="profile-icon">
+                <div class="profile-dropdown">
+                    <button id="goProfile">Профіль</button>
+                    <button id="logoutBtn">Вийти</button>
+                </div>
+            </div>
+        </div>
+    </header>
+        <div class="content">
+            <section class="search-zone">
+                <h1 style="margin-top: 60px;">Зона пошуку пригод</h1>
+                <div class="search-field">
+                    <h4 class="search-title">Жанри</h4>
+                    <ul class="genre-list" id="genreList"></ul>
+                    <div class="countries-select" id="countriesSelect">
+                        <h4 class="countries-placeholder">Оберіть країни</h4>
+                        <ul class="countries-dropdown" id="countriesDropdown"></ul>
+                    </div>
+                </div>
+                <div class="search-field">
+                    <h4 class="search-title">Рік випуску</h4>
+                    <div class="year-range">
+                        <input type="number" id="yearFrom" placeholder="від" min="1900" max="2100">
+                        <input type="number" id="yearTo" placeholder="до" min="1900" max="2100">
+                    </div>
+                </div>
+                <div class="search-field">
+                    <button class="apply-filters" id="applyFilters">Застосувати фільтри</button>
+                </div>
+            </section>
+            <div style="width: 75%;">
+                <section class="navigation">
+                    <button type="" class="main_page main_button" href="./index.html">Головна</button>
+                    <button class="film_page main_button" href="./films.html">Фільми</button>
+                    <button class="series_page main_button" href="./series.html">Серіали</button>
+                    <button class="anime_page main_button" href="./anime.html">Аніме</button>
+                </section>
+                
+                <section class="film_list">
+                    <div class="hidden" id="add_film">
+                        <img class="add_img" src="../images/add.png" width="253px" height="342" alt="">
+                        <h3 class="add_title">Додати фільм</h3>
+                    </div>
+                    <div class="film">
+                        <div>
+                            <img class="title_img" src="../images/Lumii_20250418_182733081.jpg"  style="border-radius: 20px;" alt="">
+                            <h3 class="title">День, коли ти ще не винен</h3>
+                        </div>
+                        <div class="film_min_info">
+                            <button class="star" id="starBtn">★</button>
+                            <h3 style="margin-top: 250px;"><span id="genre">Фантастика, Драма</span> <br> <span id="year">2025</span>, <span id="age">14+</span>, <span id="duration">18хв 57сек</span></h3>
+                        </div>
+                    </div>
+                </section>
+                <div class="pagination" id="pagination"></div>
+            </div>
+        </div>
+    <footer class="footer">
+        <h1 style="margin-left: 20px;">Сайт створений завдяки: logerions та artdobro (шукайте на гітхабі та у телеграмі)</h1>
+        <h1 style="margin-left: 20px;"> Це сайт для перегляду різних роликів цих студентів, а також фільмів, поки ще невідомої студії відеопродакшену "Подвір'я".</h1>
+        <a href="https://send.monobank.ua/jar/8bMeK1du5Q" target="_blank" class="support-btn">Підтримати бідних студентів</a>
+    </footer>
+    <div id="snow-container"></div>
+    <script src="../js/snow.js"></script>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/api.js"></script>
+</body>
+</html>

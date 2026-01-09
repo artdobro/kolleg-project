@@ -18,7 +18,6 @@
 <header class="header d-flex ai-center vw100">
     <a href="../index.html"><img src="../images/logo.png" alt="logo" class="logo"></a>
     <input type="text" placeholder="Пошук по сайту..." class="search">
-
     <div id="profileBlock" class="profile-block">
         <div class="profile-menu-wrapper">
             <span id="profileName" class="profile-name"></span>
@@ -30,60 +29,47 @@
         </div>
     </div>
 </header>
-
 <div class="content content-center">
 <form id="addFilmForm" class="film-form">
-
 <section class="film_info">
-
     <label class="film_poster">
         <input type="file" id="posterInput" accept="image/*" hidden required>
         <img src="../images/add.png" id="posterPreview">
     </label>
-
     <div class="film_details">
-
         <input class="enter" id="titleUA" placeholder="Назва фільму" required>
         <input class="enter" id="titleEN" placeholder="Title (English)">
-
         <textarea class="enter textarea"
-                  id="description"
-                  placeholder="Опис фільму"
-                  required></textarea>
-
+            id="description"
+            placeholder="Опис фільму"
+            required>
+        </textarea>
         <ul class="info_list">
             <li>Рік випуску:
                 <input class="enter" id="year" type="number" required>
             </li>
-
             <li>Жанр:
                 <div class="genres-select" id="genresSelect">
                     <div class="genres-placeholder">Оберіть жанри</div>
                     <div class="genres-dropdown hidden" id="genresDropdown"></div>
                 </div>
             </li>
-
             <li>Вікове обмеження:
                 <input class="enter" id="age" required>
             </li>
-
             <li>Тривалість:
                 <input class="enter" id="duration" required>
             </li>
-
             <li>Режисер:
                 <input class="enter" id="director" required>
             </li>
-
             <li>Актори:
                 <input class="enter" id="actors" required>
             </li>
-
             <li>Файл фільму:
                 <input class="enter" type="file" id="filmFile" required>
             </li>
         </ul>
-
         <button class="submit-film" type="submit">Додати фільм</button>
     </div>
 </section>

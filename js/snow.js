@@ -1,3 +1,4 @@
+// это снег, его не трожь
 const snowContainer = document.getElementById("snow-container");
 
 function createSnowflake() {
