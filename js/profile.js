@@ -12,7 +12,7 @@ window.addEventListener("scroll", function () {
 });
 
 document.querySelector('.main_page').addEventListener('click', function() {
-  window.location.href = '../main.html';
+  window.location.href = '../html/main.html';
 });
 document.querySelector('.film_page').addEventListener('click', function(event){
   window.alert('Було б добре, якби ця кнопка працювала :)');
@@ -42,7 +42,7 @@ function updateUI() {
   const user = getAuthUser();
 
   if (!user) {
-    window.location.href = "main.html";
+    window.location.href = "../html/main.html";
     return;
   }
 
@@ -58,14 +58,14 @@ document.addEventListener("DOMContentLoaded", updateUI);
 
 // ===== actions =====
 profileName?.addEventListener("click", () => {
-  window.location.href = "./profile.html";
+  window.location.href = "../html/profile.html";
 });
 
-goProfileBtn && (goProfileBtn.onclick = () => (window.location.href = "profile.html"));
+goProfileBtn && (goProfileBtn.onclick = () => (window.location.href = "../html/profile.html"));
 
 logoutBtn?.addEventListener("click", () => {
   localStorage.removeItem("authUser");
-  window.location.href = "../main.html";
+  window.location.href = "../html/main.html";
 });
 
 // ===== editing =====
