@@ -19,7 +19,7 @@ document.querySelector('.star').addEventListener('click', function(event){
 document.querySelector('.film').addEventListener('click', function(event){
   if (event.target.classList.contains('star')) 
     return;
-  window.location.href = '../html/film_card.html';
+  window.location.href = './film_card.html';
 });
 
 const star = document.getElementById('starBtn');
@@ -29,7 +29,7 @@ star.addEventListener('click', () => {
 });
 
 document.querySelector('.main_page').addEventListener('click', function() {
-  window.location.href = '../html/index.html';
+  window.location.href = './index.html';
 });
 document.querySelector('.film_page').addEventListener('click', function(event){
   window.alert('Було б добре, якби ця кнопка працювала :)');
@@ -52,7 +52,6 @@ const genresFromDB = [
 ];
 
 const genreList = document.getElementById("genreList");
-const countryList = document.getElementById("countryList");
 const applyBtn = document.getElementById("applyFilters");
 
 let selectedGenres = [];
@@ -85,90 +84,10 @@ function toggleGenre(genre, btn) {
   }
 }
 
-// ================== COUNTRIES ==================
-const countriesFromDB = [
-  { id: 1, name: "США" },
-  { id: 2, name: "Україна" },
-  { id: 3, name: "Франція" },
-  { id: 4, name: "Велика Британія" },
-  { id: 5, name: "Японія" }
-];
-
-const countriesSelect = document.getElementById("countriesSelect");
-const countriesDropdown = document.getElementById("countriesDropdown");
-const countriesPlaceholder = countriesSelect.querySelector(".countries-placeholder");
-
-let selectedCountries = [];
-
-// рендер списка
-function renderCountries(countries) {
-  countriesDropdown.innerHTML = "";
-
-  countries.forEach(country => {
-    const label = document.createElement("label");
-    label.className = "country-item";
-
-    label.innerHTML = `
-      <input type="checkbox" value="${country.id}">
-      <span>${country.name}</span>
-    `;
-
-    const checkbox = label.querySelector("input");
-
-    checkbox.addEventListener("change", () => {
-      const id = Number(checkbox.value);
-
-      if (checkbox.checked) {
-        selectedCountries.push(id);
-      } else {
-        selectedCountries = selectedCountries.filter(c => c !== id);
-      }
-
-      updateCountriesPlaceholder();
-    });
-
-    countriesDropdown.appendChild(label);
-  });
-}
-
-function updateCountriesPlaceholder() {
-  if (selectedCountries.length === 0) {
-    countriesPlaceholder.textContent = "Оберіть країни";
-    return;
-  }
-
-  const names = countriesFromDB
-    .filter(c => selectedCountries.includes(c.id))
-    .map(c => c.name);
-
-  countriesPlaceholder.textContent = names.join(", ");
-}
-
-// открытие / закрытие
-countriesSelect.addEventListener("click", (e) => {
-  e.stopPropagation();
-  countriesDropdown.classList.toggle("hidden");
-});
-
-// клик вне — закрывает
-document.addEventListener("click", () => {
-  countriesDropdown.classList.add("hidden");
-});
-
-// инициализация
-renderCountries(countriesFromDB);
-
-// экспорт выбранных стран
-function getSelectedCountries() {
-  return selectedCountries;
-}
-
-
 // ===== apply =====
 applyBtn.onclick = () => {
   const filters = {
     genres: selectedGenres.map(g => g.id),
-    countries: selectedCountries.map(c => c.id),
     yearFrom: document.getElementById("yearFrom").value || null,
     yearTo: document.getElementById("yearTo").value || null
   };
@@ -180,190 +99,6 @@ applyBtn.onclick = () => {
 };
 
 renderGenreList();
-
-// ================== ELEMENTS ==================
-// const overlay = document.getElementById("overlay");
-// const modal = document.getElementById("modal");
-// const modalTitle = document.getElementById("modalTitle");
-
-// const loginBtn = document.querySelector(".log_in");
-// const signUpBtn = document.querySelector(".sign_up");
-// const closeBtn = document.getElementById("closeModal");
-
-// const form = modal.querySelector("form");
-// const inputs = form.querySelectorAll("input");
-
-// const loginInput = inputs[0];
-// const emailInput = inputs[1];
-// const passwordInput = inputs[inputs.length - 1];
-
-// const emailError = document.getElementById("emailError");
-
-// const loginSubmit = document.getElementById("login");
-// const registerSubmit = document.getElementById("register");
-
-// const authButtons = loginBtn.parentElement;
-// const profileBlock = document.getElementById("profileBlock");
-// const profileName = document.getElementById("profileName");
-// const logoutBtn = document.getElementById("logoutBtn");
-// const goProfileBtn = document.getElementById("goProfile");
-// const wrapper = document.querySelector(".profile-menu-wrapper");
-
-// const addFilmBlock = document.getElementById("add_film");
-
-// // ================== STATE ==================
-// let mode = "login";
-
-// // ================== USERS (mock DB) ==================
-// const users = [
-//   { login: "admin", email: "admin@mail.com", password: "admin", role: "admin" },
-//   { login: "user", email: "user@mail.com", password: "123", role: "user" }
-// ];
-
-// addFilmBlock.addEventListener('click', () => {
-//   window.location.href = 'adding.html';
-// });
-// // ================== MODAL ==================
-// loginBtn.onclick = () => openModal("login");
-// signUpBtn.onclick = () => openModal("register");
-// closeBtn.onclick = closeModal;
-
-// overlay.onclick = (e) => {
-//   if (e.target === overlay) closeModal();
-// };
-
-// function openModal(type) {
-//   mode = type;
-//   overlay.classList.add("active");
-
-//   emailError.classList.add("hidden");
-//   form.reset();
-
-//   if (mode === "login") {
-//     modalTitle.textContent = "Ласкаво просимо";
-//     emailInput.style.display = "none";
-//     loginSubmit.classList.remove("hidden");
-//     registerSubmit.classList.add("hidden");
-//     modal.style.height = "500px";
-//   } else {
-//     modalTitle.textContent = "Вітаємо новеньких";
-//     emailInput.style.display = "block";
-//     loginSubmit.classList.add("hidden");
-//     registerSubmit.classList.remove("hidden");
-//     modal.style.height = "600px";
-//   }
-// }
-
-// function closeModal() {
-//   overlay.classList.remove("active");
-// }
-
-// // ================== FORM SUBMIT ==================
-// form.addEventListener("submit", (e) => {
-//   e.preventDefault();
-
-//   const login = loginInput.value.trim();
-//   const email = emailInput.value.trim();
-//   const password = passwordInput.value.trim();
-
-//   emailError.classList.add("hidden");
-
-//   if (!login || !password) {
-//     showError("Заповніть всі обовʼязкові поля");
-//     return;
-//   }
-
-//   if (mode === "login") loginUser(login, password);
-//   if (mode === "register") registerUser(login, email, password);
-// });
-
-// // ================== AUTH LOGIC ==================
-// function loginUser(login, password) {
-//   const user = users.find(
-//     u => (u.login === login || u.email === login) && u.password === password
-//   );
-
-//   if (!user) {
-//     showError("Невірний логін або пароль");
-//     return;
-//   }
-
-//   saveUser(user);
-// }
-
-// function registerUser(login, email, password) {
-//   if (!email) {
-//     showError("Електронна пошта обовʼязкова");
-//     return;
-//   }
-
-//   const exists = users.find(
-//     u => u.login === login || u.email === email
-//   );
-
-// // 1. Ищем, занят ли логин
-//   const loginExists = users.some(u => u.login === login);
-//   // 2. Ищем, занята ли почта
-//   const emailExists = users.some(u => u.email === email);
-
-//   // 3. Проверяем комбинации
-//   if (loginExists && emailExists) {
-//     showError("Логін та електронна пошта вже зайняті");
-//     return;
-//   }
-
-//   if (loginExists) {
-//     showError("Цей логін уже зайнятий");
-//     return;
-//   }
-
-//   if (emailExists) {
-//     showError("Користувач з такою поштою вже існує");
-//     return;
-//   }
-
-//   const newUser = { login, email, password, role: "user" };
-//   users.push(newUser);
-//   saveUser(newUser);
-// }
-
-// function saveUser(user) {
-//   localStorage.setItem("authUser", JSON.stringify(user));
-//   closeModal();
-//   updateUI();
-// }
-
-// // ================== UI ==================
-// function updateUI() {
-//   const user = JSON.parse(localStorage.getItem("authUser"));
-
-//   if (user) {
-//     authButtons.classList.add("hidden");
-//     profileBlock.classList.remove("hidden");
-//     wrapper.classList.remove("hidden");
-//     wrapper.style.display = "flex";
-//     profileName.textContent = user.login;
-
-//     // 🔑 ПОКАЗ ТОЛЬКО ДЛЯ ADMIN
-//     if (user.role === "admin") {
-//       addFilmBlock?.classList.remove("hidden");
-//       addFilmBlock.style.display = "flex";
-//     } else {
-//       addFilmBlock?.classList.add("hidden");
-//     }
-
-//   } else {
-//     authButtons.classList.remove("hidden");
-//     profileBlock.classList.add("hidden");
-//     wrapper.classList.add("hidden");
-//     profileName.textContent = "";
-
-//     // ❌ если не залогинен — скрыто
-//     addFilmBlock?.classList.add("hidden");
-//   }
-// }
-
-// updateUI();
 
 // ================== ELEMENTS ==================
 const overlay = document.getElementById("overlay");
@@ -398,6 +133,15 @@ const addFilmBlock = document.getElementById("add_film");
 // ================== STATE ==================
 let mode = "login";
 
+// ================== USERS (mock DB) ==================
+const users = [
+  { login: "admin", email: "admin@mail.com", password: "admin", role: "admin" },
+  { login: "user", email: "user@mail.com", password: "123", role: "user" }
+];
+
+addFilmBlock.addEventListener('click', () => {
+  window.location.href = 'adding.html';
+});
 // ================== MODAL ==================
 loginBtn.onclick = () => openModal("login");
 signUpBtn.onclick = () => openModal("register");
@@ -452,106 +196,56 @@ form.addEventListener("submit", (e) => {
   if (mode === "register") registerUser(login, email, password);
 });
 
-// ================== AUTH (SPRING SECURITY) ==================
-async function loginUser(login, password) {
-  try {
-    const formData = new FormData();
-    formData.append("username", login);
-    formData.append("password", password);
+// ================== AUTH LOGIC ==================
+function loginUser(login, password) {
+  const user = users.find(
+    u => (u.login === login || u.email === login) && u.password === password
+  );
 
-    const res = await fetch("/login", {
-      method: "POST",
-      body: formData,
-      credentials: "include"
-    });
-
-    if (!res.ok) {
-      showError("Невірний логін або пароль");
-      return;
-    }
-
-    // получаем данные текущего пользователя
-    const userRes = await fetch("/api/auth/me", {
-      credentials: "include"
-    });
-
-    if (!userRes.ok) {
-      showError("Не вдалося отримати дані користувача");
-      return;
-    }
-
-    const user = await userRes.json();
-    saveUser(user);
-
-  } catch (e) {
-    showError("Помилка зʼєднання з сервером");
+  if (!user) {
+    showError("Невірний логін або пароль");
+    return;
   }
+
+  saveUser(user);
 }
 
-async function registerUser(login, email, password) {
+function registerUser(login, email, password) {
   if (!email) {
     showError("Електронна пошта обовʼязкова");
     return;
   }
 
-  try {
-    const res = await fetch("/api/auth/register", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ login, email, password })
-    });
+  const exists = users.find(
+    u => u.login === login || u.email === email
+  );
 
-    if (!res.ok) {
-      let message = "Помилка реєстрації";
+// 1. Ищем, занят ли логин
+  const loginExists = users.some(u => u.login === login);
+  // 2. Ищем, занята ли почта
+  const emailExists = users.some(u => u.email === email);
 
-      // ⬇️ читаем ответ бэка
-      try {
-        const data = await res.json();
-
-        if (data.message) {
-          message = data.message;
-        }
-      } catch {
-        // если бэк вернул plain text
-        const text = await res.text();
-        if (text) message = text;
-      }
-
-      // 🔥 кастомные сообщения
-      if (res.status === 409) {
-        if (message.toLowerCase().includes("login")) {
-          message = "Такий логін вже існує";
-        }
-        if (message.toLowerCase().includes("email")) {
-          message = "Така електронна пошта вже зареєстрована";
-        }
-      }
-
-      showError(message);
-      return;
-    }
-
-    // автологин
-    await loginUser(login, password);
-
-  } catch (e) {
-    showError("Помилка зʼєднання з сервером");
+  // 3. Проверяем комбинации
+  if (loginExists && emailExists) {
+    showError("Логін та електронна пошта вже зайняті");
+    return;
   }
+
+  if (loginExists) {
+    showError("Цей логін уже зайнятий");
+    return;
+  }
+
+  if (emailExists) {
+    showError("Користувач з такою поштою вже існує");
+    return;
+  }
+
+  const newUser = { login, email, password, role: "user" };
+  users.push(newUser);
+  saveUser(newUser);
 }
 
-function markInputError(input) {
-  input.classList.add("input-error");
-}
-
-function clearErrors() {
-  emailError.classList.add("hidden");
-  loginInput.classList.remove("input-error");
-  emailInput.classList.remove("input-error");
-}
-if (message.includes("логін")) markInputError(loginInput);
-if (message.includes("пошта")) markInputError(emailInput);
-
-// ================== SAVE USER ==================
 function saveUser(user) {
   localStorage.setItem("authUser", JSON.stringify(user));
   closeModal();
@@ -559,60 +253,36 @@ function saveUser(user) {
 }
 
 // ================== UI ==================
-async function updateUI() {
-  try {
-    const res = await fetch("/api/auth/me", {
-      credentials: "include"
-    });
+function updateUI() {
+  const user = JSON.parse(localStorage.getItem("authUser"));
 
-    if (!res.ok) {
-      throw new Error("Not authorized");
-    }
-
-    const user = await res.json();
-
+  if (user) {
     authButtons.classList.add("hidden");
     profileBlock.classList.remove("hidden");
     wrapper.classList.remove("hidden");
     wrapper.style.display = "flex";
-
     profileName.textContent = user.login;
 
-    // ADMIN ONLY
-    if (user.role?.includes("ADMIN")) {
+    // 🔑 ПОКАЗ ТОЛЬКО ДЛЯ ADMIN
+    if (user.role === "admin") {
       addFilmBlock?.classList.remove("hidden");
       addFilmBlock.style.display = "flex";
     } else {
       addFilmBlock?.classList.add("hidden");
     }
 
-    // sync localStorage
-    localStorage.setItem("authUser", JSON.stringify(user));
-
-  } catch {
-    // ❗ пользователь НЕ авторизован
+  } else {
     authButtons.classList.remove("hidden");
     profileBlock.classList.add("hidden");
     wrapper.classList.add("hidden");
     profileName.textContent = "";
+
+    // ❌ если не залогинен — скрыто
     addFilmBlock?.classList.add("hidden");
-    localStorage.removeItem("authUser");
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  updateUI();
-});
-
-// ================== ERRORS ==================
-function showError(message) {
-  emailError.textContent = message;
-  emailError.classList.remove("hidden");
-}
-
-// ================== INIT ==================
 updateUI();
-
 
 // ================== PROFILE ACTIONS ==================
 profileName.onclick = () => window.location.href = "profile.html";
@@ -724,4 +394,3 @@ function changePage(page) {
 
 // INIT
 renderPage(1);
-
